@@ -1,0 +1,33 @@
+{
+    "data": "./image1.png",
+    "tags": [
+      {
+        "name": "App-Name",
+        "value": "Codehubs"
+      },
+      {
+        "name": "Protocol",
+        "value": "Codehubs"
+      },
+      {
+        "name": "Content-Type",
+        "value": "image/png"
+      },
+      {
+        "name": "Title",
+        "value": "Mall Walk"
+      },
+      {
+        "name": "Description",
+        "value": "Going to the mall for groceries"
+      },
+      {
+        "name": "Location",
+        "value": "5.015851,7.930660"
+      },
+      {
+        "name": "Timestamp",
+        "value": "2022-03-30T19:02:52.716Z"
+      }
+    ]
+  }

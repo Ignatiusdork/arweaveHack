@@ -1,0 +1,17 @@
+{
+  "name": "Hubs-Protocol",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "load-data": "node load-dev-data.js",
+    "load-text": "node text.js"
+    
+  },
+
+  "dependencies": {
+    "arweave": "^1.14.4"
+  }
+}

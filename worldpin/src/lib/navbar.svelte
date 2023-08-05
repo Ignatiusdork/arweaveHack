@@ -22,7 +22,7 @@
   <header class="navbar bg-neutral-300 sticky top-0 z-50">
     <div class="flex-1">
       <a class="btn btn-ghost" href="/about">
-        <img src="codehubs-removebg-preview.png" alt="Hubs logo" class="h-12" />
+        <img src="codehubs-removebg-preview.png" alt="Hubs-logo" class="h-12" />
       </a>
     </div>
     <div class="flex-none">

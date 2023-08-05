@@ -13,4 +13,6 @@ async function main() {
   console.log(tx)
 }
 
+const res = await fetch(`https://localhost:1984/${TX}`)
+const data = await res.text()
 main()

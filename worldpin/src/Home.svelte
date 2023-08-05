@@ -54,7 +54,7 @@
           <!-- Logo -->
           <a
             class="mb-4 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
-            href="#"
+            href="/"
           >
           <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome 
             - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32
@@ -82,7 +82,7 @@
           Click me
         </button> -->
 
-          <a class="btn bg-black text-white" href=" /connect"> CONNECT </a>
+          <a class="btn bg-black text-cyan-500" href=" /connect"> CONNECT </a>
 
           <!-- Container with two dropdown menus -->
         </div>
@@ -110,7 +110,7 @@
             </h2>
             <p class="pb-9 text-cyan-500">And Pin on Arweave Forever!</p>
 
-            <a class="btn bg-info mt-4" href="#connect"> LET's GO! </a>
+            <a class="btn  mt-4  text-cyan-500 h-12 px-6 bg-black" href="#connect"> LET's GO! </a>
           </div>
         </div>
       </div>

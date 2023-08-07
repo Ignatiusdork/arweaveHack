@@ -79,8 +79,8 @@
           class="btn mt-8 shadow-black/50 shadow-2xl"
           on:click={async () => {
             window.scrollTo(0, 0);
-            router.goto("/blog");
-          }}>Blog</button
+            router.goto("/explore");
+          }}>Explore</button
         >
       </div>
     </div>

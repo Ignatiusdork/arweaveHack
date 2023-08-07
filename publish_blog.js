@@ -1,7 +1,8 @@
 const Arweave = require('arweave')
 const fs = require('fs')
 
-const input3 = require('./data/3.json')
+const input3 = require('./data/3.json');
+const { Tag } = require('arweave/node/lib/transaction');
 const data3 = fs.readFileSync('./data/txt.html')
 
 const arweave = Arweave.init({
@@ -30,12 +31,12 @@ const arweave = Arweave.init({
     await arweave.api.get('mine')
 
     tx = await arweave.createTransaction({
-        data: data3
+        data: data3, tags: [new Tag('blog_title', 'Hello World')]
     }, key)
     // input3.tags.map(tag => {
     //     tx.addTag(tag.name, tag.value)
     // })
-    tx.addTag('blog_title', 'Hello World')
+    // tx.addTag('blog_title', 'Hello World')
     await arweave.transactions.sign(tx, key)
     console.log(tx.id)
     uploader = await arweave.transactions.getUploader(tx)

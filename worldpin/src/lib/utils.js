@@ -1,4 +1,4 @@
-const Arweave = require('arweave')
+import Arweave from 'arweave'
 
 const arweave = Arweave.init({
   host: 'localhost',
@@ -6,7 +6,7 @@ const arweave = Arweave.init({
   protocol: 'http'
 });
 
-const getAllTxFromID = async (addr) => {
+export const getAllTxFromID = async (addr) => {
   try {
     const result = await arweave.api.post('graphql', {
       query: `
@@ -29,7 +29,14 @@ const getAllTxFromID = async (addr) => {
   }
 }
 
-
-const addr = "vVvN5qZ-KSno5hpsK_t2B-6gq2XGDENX3_ZE1HzzGs4"
-var res = getAllTxFromID(addr)
+export async function fetchTransaction(transactionId) {
+  try {
+    // const transaction_data = await arweave.transactions.getData(transactionId, { decode: true, string: true });
+    const transaction = await arweave.transactions.get(transactionId);
+    console.log(transaction);
+    return transaction;
+  } catch (error) {
+    console.error(error);
+  }
+}
 // console.log(res)

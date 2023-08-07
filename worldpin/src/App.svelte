@@ -10,13 +10,13 @@
   import Navbar from "./lib/navbar.svelte";
   import About from "./about.svelte";
   import Home from "./Home.svelte";
+  import Blog from "./textarea.svelte";
   import { activity, submit, waitfor, getTx } from "./arweave.js";
   import { toArrayBuffer } from "./fs.js";
   import { pinFromTx } from "./pin.js";
   import Map from "./lib/map.svelte";
   import Marker from "./lib/marker.svelte";
   import { connect } from "./arweaveapp.js";
-  import * as arconnect from "./arconnect";
   import * as marked from "marked";
   import { address } from "./store.js";
   import { writable } from "svelte/store";
@@ -388,7 +388,7 @@
                   lng = pin.location.split(",")[1];
                   router.goto("/explore");
                 }}
-                class="btn btn-primary">Hubs</button
+                class="btn btn-primary">PinEarth</button
               >
               <a
                 class="btn"
@@ -436,15 +436,16 @@
                 About Arweave.app
               </h5>
               <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                Some quick example text to build on the card title and make up the bulk
-                of the card's content.
+                Arweave.app is a community developed, open source, project that gets you started on 
+                Arweave with a minimum of effort.<br> Upon arrival you'll be presented with the welcome screen.<br>
+                Setting up your wallet is super easy, simply open up arweave.app in your browser. Click on the button below to get started 
               </p>
                <a
-              href="#"
+              href="https://arweave.app"
               
               data-te-ripple-init
               data-te-ripple-color="primary"
-              class="inline-block rounded-full hover:bg-gray-400 btn btn-gray-700 px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+              class="inline-block rounded-full bg-orange-200 hover:bg-gray-400 btn btn-gray-700 px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
               Learn More...
             </a>
          </div>
@@ -485,6 +486,12 @@
         {/if}
       </section>
     </main>
+  </Route>
+
+  <!--Blog Page-->
+
+  <Route path="/blog">
+    <Blog />
   </Route>
 
   <!--About Page-->

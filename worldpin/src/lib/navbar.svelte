@@ -47,6 +47,7 @@
   
       <a class="btn btn-ghost" href="/explore">Explore</a>
       <a class="btn btn-ghost hidden md:inline-flex" href="/about">About</a>
+      <a class="btn btn-ghost hidden md:inline-flex" href="/blog">Blog Post</a>
   
       <!--
       <a class="btn btn-ghost" href="/pins/new">Create Pin</a>

@@ -11,7 +11,7 @@ export const activity = async () => {
     const result = await arweave.api.post('graphql', {
       query: `
         query {
-          transactions (first: 100, tags: {name: "Protocol", values: ["Hubs"]}) {
+          transactions (first: 100, tags: {name: "Protocol", values: ["PinPoint Earth"]}) {
             edges {
               node {
                 id

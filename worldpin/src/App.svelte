@@ -488,14 +488,7 @@
     </main>
   </Route>
 
-  <!--Blog Page-->
-
-  <Route path="/blog">
-    <Blog />
-  </Route>
-
   <!--About Page-->
-
   <Route path="/about">
     <About />
   </Route>

@@ -11,7 +11,6 @@
   import Blog from "./blog.svelte";
   import About from "./about.svelte";
   import Home from "./Home.svelte";
-  import Blog from "./textarea.svelte";
   import { activity, submit, waitfor, getTx } from "./arweave.js";
   import { toArrayBuffer } from "./fs.js";
   import { pinFromTx } from "./pin.js";

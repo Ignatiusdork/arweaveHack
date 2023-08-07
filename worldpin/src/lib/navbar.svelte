@@ -46,6 +46,7 @@
       {/if}
   
       <a class="btn btn-ghost" href="/explore">Explore</a>
+      <a class="btn btn-ghost" href="/blog">Blog</a>
       <a class="btn btn-ghost hidden md:inline-flex" href="/about">About</a>
   
       <!--

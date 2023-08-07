@@ -8,6 +8,7 @@
 
   import { Route, router, meta } from "tinro";
   import Navbar from "./lib/navbar.svelte";
+  import Blog from "./blog.svelte";
   import About from "./about.svelte";
   import Home from "./Home.svelte";
   import { activity, submit, waitfor, getTx } from "./arweave.js";
@@ -491,6 +492,12 @@
 
   <Route path="/about">
     <About />
+  </Route>
+
+  <!--Blog Page-->
+
+  <Route path="/blog">
+    <Blog />
   </Route>
 
   <!--404 Page -->

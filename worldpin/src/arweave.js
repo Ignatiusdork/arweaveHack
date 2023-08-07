@@ -35,7 +35,7 @@ export const activity = async () => {
 
 export const submit = async ({ data, tags }) => {
   if (window?.arweaveWallet === undefined) {
-    return {ok: false, message: 'Wallet not connected'}
+    return { ok: false, message: 'Wallet not connected' }
   }
   // const addr = await window.arweaveWallet.getActiveAddress()
   // const balance = await getBalance(addr)
@@ -43,20 +43,20 @@ export const submit = async ({ data, tags }) => {
   const balance = await getBalance(
     await window.arweaveWallet.getActiveAddress()
   )
-  
-  try{
+
+  try {
     const tx = await arweave.createTransaction({ data })
     tags.map(({ name, value }) => tx.addTag(name, value))
     await arweave.transactions.sign(tx)
     if (Number(tx.reward) > Number(balance)) {
-      return {ok: false, message: "Not enough AR to complete the request!"}
+      return { ok: false, message: "Not enough AR to complete the request!" }
     }
-    
+
     const uploader = await arweave.transactions.getUploader(tx)
-    return {ok: true, uploader, txId: tx.id}
-    
+    return { ok: true, uploader, txId: tx.id }
+
   } catch (e) {
-    return {ok: false, txId: tx.id, message: e.message}
+    return { ok: false, txId: null, message: e.message }
   }
 
 }

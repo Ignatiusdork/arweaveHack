@@ -1,14 +1,13 @@
 {
-    "data": "string",
-    "tags": [
-      {
-        "name": "App-Name",
-        "value": "blogs"
-      },
-      {
-        "name": "Protocol",
-        "value": "blogs"
-      }
-
-    ]
-  }
+  "data": "string",
+  "tags": [
+    {
+      "name": "App-Name",
+      "value": "Hubs"
+    },
+    {
+      "name": "Protocol",
+      "value": "blogs"
+    }
+  ]
+}

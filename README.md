@@ -1,13 +1,13 @@
-<img align="center" style="height: 64px" src="app/public/codehubs-removebg-preview.png" alt="logo" />
+<img align="center" style="height: 64px" src="worldpin/public/codehubs-removebg-preview.png" alt="logo" />
 <h1 align="center">PinPoint Earth</h1>
-<p align="center">A worldwide map location and blog dapp on ArWeave!</p>
+<p align="center">A worldwide map location and decentralized blog dapp on ArWeave!</p>
 <p align="center">This projects uses common web techonologies and being built on the Arweave Blockweave</p>
 
 ---
 
-## A GlobalPinpoint application `PinPoint Earth`
+## A Global-Pinpoint And Decentralized Blogging Application `PinPoint Earth`
 
-PinPoint Earth is an innovative mobile application designed to help users explore, navigate, and interact with the world around them, users can take photos and document a moment at a specific location, the blog post feature to write documemtations and articles etc. The app leverages advanced mapping technology and location-based services to provide a wide range of features and functionalities. 
+PinPoint Earth is an innovative mobile application designed to help users explore, navigate, and interact with the world around them, users can take photos and document a moment at a specific location, the decentralized blog post feature to write documemtations and articles etc. The app leverages advanced mapping technology and location-based services to provide a wide range of features and functionalities. 
 
 A little background on Arweave
 

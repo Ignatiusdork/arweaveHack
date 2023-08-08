@@ -31,7 +31,7 @@ const arweave = Arweave.init({
     await arweave.api.get('mine')
 
     tx = await arweave.createTransaction({
-        data: data3, tags: [new Tag('blog_title', 'Hello World')]
+        data: data3, tags: [new Tag('blog_title', 'A little background note on Arweave')]
     }, key)
     // input3.tags.map(tag => {
     //     tx.addTag(tag.name, tag.value)

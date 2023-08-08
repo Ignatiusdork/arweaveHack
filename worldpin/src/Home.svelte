@@ -102,13 +102,16 @@
         <div class="flex justify-center items-center h-full">
           <div class="text-white text-center">
             <h1 class="mb-19 text-5xl font-semibold">PinPoint-Earth</h1>
-            <p class="font-medium text-center mb-5 mt-7 text-cyan-500">
+            <p class="text-center mb-5 mt-7 font-semibold text-cyan-500">
               Protocol
             </p>
             <h2 class="mb-14 mt-9 text-3xl font-medium">
               Introducing PinPoint-Earth - Your Gateway to Global Exploration!
+              <br>
+              <br>
+              And Decentralized Blogging
             </h2>
-            <p class="pb-9 text-cyan-500">With PinPoint Earth, you can seamlessly explore breathtaking landscapes, stunning landmarks, and 
+            <p class="pb-9 font-semibold text-cyan-500">With PinPoint Earth, you can seamlessly explore breathtaking landscapes, stunning landmarks, and 
               hidden gems, all from the comfort of your screen.</p>
 
             <a class="btn  mt-4  text-cyan-500 h-12 px-6 bg-black" href="#connect"> LET's GO! </a>

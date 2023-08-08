@@ -7,7 +7,7 @@
 <Navbar />
 <main class="h-screen  bg-cover">
   <section class="hero-content items-center ml-20 text-center">
-    <div class=" pt-7 grid grid-cols-1">
+    <div class=" pt-7 grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1">
       <!-- <img alt="Hubs" src="codehubs-removebg-preview.png" style="height: 120px" /> -->
       <h1 class="text-4xl font-extrabold">PinPoint Earth</h1>
 

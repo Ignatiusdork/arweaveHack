@@ -38,11 +38,11 @@
 </script>
 
 <Navbar />
-<main class="h-screen bg-neutral-400">
+<main class="h-screen bg-neutral-300">
   <section class="hero-content items-center text-center">
-    <div class=" pt-7 ">
+    <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 pt-7 ">
       <!-- <img alt="Hubs" src="codehubs-removebg-preview.png" style="height: 120px" /> -->
-      <h1 class="text-4xl font-extrabold">PinPoint-Blog</h1>
+      <h1 class="text-3xl font-extrabold">PinPoint-Blog</h1>
 
       <div
         class="mt-9 shadow-black/40 shadow-2xl text-m text-gray-900 dark:text-white"

@@ -1,10 +1,8 @@
-
-
 <script>
-   // Initialization for ES Users
-   import { Collapse, Dropdown, initTE, Ripple, Carousel } from "tw-elements";
+  // Initialization for ES Users
+  import { Collapse, Dropdown, initTE, Ripple, Carousel } from "tw-elements";
 
-  initTE({ Ripple,  });
+  initTE({ Ripple });
 
   import { Route, router, meta } from "tinro";
   import Navbar from "./lib/navbar.svelte";
@@ -35,10 +33,9 @@
   let progress = writable(0);
   let timestamp = new Date().toISOString();
   let upload = false;
-  let lat = 25.2744;
-  let lng = 133.7751;
+  let lat = -25.8878066;
+  let lng = 135.9621285;
   let once = false;
-
 
   // function to get recent pins when users have made pins on the map
   async function getRecentPins() {
@@ -48,7 +45,7 @@
       once = true;
     }
 
-    // function to get the pin activity carried out on the location of the map 
+    // function to get the pin activity carried out on the location of the map
     const results = await activity();
     const pins = results
       .map((_) => pinFromTx(_.node))
@@ -60,7 +57,7 @@
     return pins;
   }
 
-// This function is to get current pin made by the user on the map
+  // This function is to get current pin made by the user on the map
   async function getPin(id) {
     return await getTx(id)
       .then((res) => (res !== null ? res : Promise.reject("Not Found!")))
@@ -179,21 +176,17 @@
   let toggle = () => {
     let element = document.getElementById("mylink");
     element.classList.toggle("bold");
-  }
-
-  
+  };
 </script>
- 
 
 <svelte:head>
   <link rel="canonical" />
 </svelte:head>
 
-
 <!--Home Page -->
-    <div>
-      <Home/>
-    </div>
+<div>
+  <Home />
+</div>
 
 <!--NavBar Component-->
 
@@ -202,7 +195,7 @@
   <main class="hero bg-base-100 min-h-screen">
     <section class="flex flex-col w-full">
       <div class="w-auto h-auto h-3/4 md:mx-4 md:my-4">
-        <Map {lat} lon={lng} zoom={8} on:droppin={handleCreatePin}>
+        <Map {lat} lon={lng} zoom={4.5} on:droppin={handleCreatePin}>
           {#await getRecentPins() then pins}
             {#each pins as pin}
               <Marker
@@ -228,198 +221,198 @@
   </main>
 </Route>
 
-  <!--New Pins and location-->
-  <Route path="/pins/new">
-    <Navbar />
-    <main class="hero bg-neutral-300 min-h-screen">
-      <section class="hero-content flex-col">
-        <h1 class="text-3xl">Create a Pin</h1>
-        {#if window?.arweaveWallet === undefined}
-          <div class="alert alert-error flex-col items-start">
-            <h3 class="text-2xl">ERROR: Wallet not found</h3>
-            <p>
-              Looks like you don't have a wallet on Arweave.app - get one here <a
-                class="underline"
-                href="https://arweave.app/add">https://arweave.app/add</a
-              >
-            </p>
-            <p class="mt-4">
-              Looks like you don't have ArConnect installed - get it here <a
-                class="underline"
-                href="https://arconnect.io">https://ArConnect.io</a
-              >
-            </p>
-          </div>
-        {/if}
-        <div class="w-full">
-          <form class="form" on:submit|preventDefault={publishPin}>
-            <div class="form-control">
-              <label for="title" class="label">Title</label>
-              <input
-                required
-                type="text"
-                id="title"
-                name="title"
-                class="input input-bordered"
-                bind:value={title}
-              />
-            </div>
-            <div class="form-control">
-              <label for="description" class="label">Description</label>
-              <input
-                required
-                type="text"
-                id="description"
-                name="description"
-                class="input input-bordered"
-                bind:value={description}
-              />
-            </div>
-            <div class="form-control">
-              <label for="photo" class="label">Photo</label>
-              <input
-                required
-                type="file"
-                id="photo"
-                name="photo"
-                class="input input-bordered"
-                bind:files
-                accept="image/png, image/jpeg, image/gif, image/jpg"
-              />
-            </div>
-            <div class="mt-4 alert alert-warning shadow-lg">
-              <div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="stroke-current flex-shrink-0 h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  ><path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                  /></svg
-                >
-                <span
-                  >Warning: Any information and image you post will be on the<br
-                  />
-                  Permaweb. It is immutable and permanent. Act accordingly - no<br
-                  />
-                  copyrighted material or NSFW. It's also connected with your<br
-                  />
-                  wallet address. Thanks!</span
-                >
-              </div>
-            </div>
-           
-            <div class="form-control">
-              <label for="location" class="label">Location</label>
-              <input
-                required
-                type="text"
-                id="location"
-                name="location"
-                class="input input-bordered"
-                bind:value={location}
-              />
-              <button on:click={getLocation} type="button" class="btn mt-4"
-                >Get Current Location</button
-              >
-            </div>
-            <div class="form-control">
-              <label for="timestamp" class="label">Date/Time</label>
-              <input
-                required
-                type="datetime-local"
-                id="timestamp"
-                name="timestamp"
-                class="input input-bordered"
-                bind:value={timestamp}
-                on:change={(e) => (e.target.value = e.target.value.substr(0, 16))}
-              />
-            </div>
-            <div class="mt-8">
-              <button class="btn btn-primary">Submit</button>
-              <button
-                on:click={() => {
-                  window.scrollTo(0, 0);
-                  router.goto("/explore");
-                }}
-                class="btn">Cancel</button
-              >
-            </div>
-          </form>
+<!--New Pins and location-->
+<Route path="/pins/new">
+  <Navbar />
+  <main class="hero bg-neutral-300 min-h-screen">
+    <section class="hero-content flex-col">
+      <h1 class="text-3xl">Create a Pin</h1>
+      {#if window?.arweaveWallet === undefined}
+        <div class="alert alert-error flex-col items-start">
+          <h3 class="text-2xl">ERROR: Wallet not found</h3>
+          <p>
+            Looks like you don't have a wallet on Arweave.app - get one here <a
+              class="underline"
+              href="https://arweave.app/add">https://arweave.app/add</a
+            >
+          </p>
+          <p class="mt-4">
+            Looks like you don't have ArConnect installed - get it here <a
+              class="underline"
+              href="https://arconnect.io">https://ArConnect.io</a
+            >
+          </p>
         </div>
-      </section>
-    </main>
-  </Route>
-
-  <!--Pin Id or Location Id-->
-
-  <Route path="/pins/:id/show">
-    <Navbar />
-    <main class="hero bg-neutral-300 min-h-screen">
-      <section class="hero-content flex-col md:flex-row space-x-8">
-
-        <!--Show Id details-->
-        {#await getPin(meta().params.id) then pin}
-          <figure class="md:w-1/2">
-            <img class=" rounded-md" src={pin.image_url} alt={pin.title} />
-          </figure>
-          <div class="card md:w-1/2 bg-base-100 shadow-xl p-4">
-            <h1 class="card-title">{pin.title}</h1>
-            <div class="card-body">
-              <div class="pin-content">{@html pin.description}</div>
-              <p>
-                {new Intl.DateTimeFormat("en-US", {
-                  dateStyle: "full",
-                  timeStyle: "long",
-                }).format(new Date(pin.timestamp))}
-              </p>
-              <p>{pin.place}</p>
-              <p>{pin.location}</p>
-            </div>
-            <div class="card-actions justify-end mt-8 space-x-4">
-              <button
-                on:click={() => {
-                  window.scrollTo(0, 0);
-                  lat = pin.location.split(",")[0];
-                  lng = pin.location.split(",")[1];
-                  router.goto("/explore");
-                }}
-                class="btn btn-primary">PinEarth</button
+      {/if}
+      <div class="w-full">
+        <form class="form" on:submit|preventDefault={publishPin}>
+          <div class="form-control">
+            <label for="title" class="label">Title</label>
+            <input
+              required
+              type="text"
+              id="title"
+              name="title"
+              class="input input-bordered"
+              bind:value={title}
+            />
+          </div>
+          <div class="form-control">
+            <label for="description" class="label">Description</label>
+            <input
+              required
+              type="text"
+              id="description"
+              name="description"
+              class="input input-bordered"
+              bind:value={description}
+            />
+          </div>
+          <div class="form-control">
+            <label for="photo" class="label">Photo</label>
+            <input
+              required
+              type="file"
+              id="photo"
+              name="photo"
+              class="input input-bordered"
+              bind:files
+              accept="image/png, image/jpeg, image/gif, image/jpg"
+            />
+          </div>
+          <div class="mt-4 alert alert-warning shadow-lg">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="stroke-current flex-shrink-0 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                /></svg
               >
-              <a
-                class="btn"
-                target="_blank"
-                href="https://twitter.com/intent/tweet?via=onlyarweave&text={encodeURI(
-                  'Check out my pin on the permaweb'
-                )}&url={window.location.href.replace('#', '%23')}"
-              >
-                Share</a
+              <span
+                >Warning: Any information and image you post will be on the<br
+                />
+                Permaweb. It is immutable and permanent. Act accordingly - no<br
+                />
+                copyrighted material or NSFW. It's also connected with your<br
+                />
+                wallet address. Thanks!</span
               >
             </div>
           </div>
-        {/await}
-      </section>
-    </main>
-  </Route>
-  
-  <!--connect with your wallet to login to Hubs--->
 
-  <Route path="/connect">
+          <div class="form-control">
+            <label for="location" class="label">Location</label>
+            <input
+              required
+              type="text"
+              id="location"
+              name="location"
+              class="input input-bordered"
+              bind:value={location}
+            />
+            <button on:click={getLocation} type="button" class="btn mt-4"
+              >Get Current Location</button
+            >
+          </div>
+          <div class="form-control">
+            <label for="timestamp" class="label">Date/Time</label>
+            <input
+              required
+              type="datetime-local"
+              id="timestamp"
+              name="timestamp"
+              class="input input-bordered"
+              bind:value={timestamp}
+              on:change={(e) => (e.target.value = e.target.value.substr(0, 16))}
+            />
+          </div>
+          <div class="mt-8">
+            <button class="btn btn-primary">Submit</button>
+            <button
+              on:click={() => {
+                window.scrollTo(0, 0);
+                router.goto("/explore");
+              }}
+              class="btn">Cancel</button
+            >
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+</Route>
 
-    <main class="hero relative bg-neutral-300 min-h-screen">
-      <section class="hero-content flex-col">
-        <h3 class="text-6xl font-medium mb-37">CONNECT YOUR WALLET!</h3>
+<!--Pin Id or Location Id-->
 
-        <p class="mt-5 text-orange-400 link text-3xl font-medium">
-          Begin Your Jounery Into The Blockweave!
-        </p>
-        
-        <div class="flex space-x-8 mb-8 mt-6 shadow-black/40 shadow-2xl hover:bg-blue-300 ">
-          <button
+<Route path="/pins/:id/show">
+  <Navbar />
+  <main class="hero bg-neutral-300 min-h-screen">
+    <section class="hero-content flex-col md:flex-row space-x-8">
+      <!--Show Id details-->
+      {#await getPin(meta().params.id) then pin}
+        <figure class="md:w-1/2">
+          <img class=" rounded-md" src={pin.image_url} alt={pin.title} />
+        </figure>
+        <div class="card md:w-1/2 bg-base-100 shadow-xl p-4">
+          <h1 class="card-title">{pin.title}</h1>
+          <div class="card-body">
+            <div class="pin-content">{@html pin.description}</div>
+            <p>
+              {new Intl.DateTimeFormat("en-US", {
+                dateStyle: "full",
+                timeStyle: "long",
+              }).format(new Date(pin.timestamp))}
+            </p>
+            <p>{pin.place}</p>
+            <p>{pin.location}</p>
+          </div>
+          <div class="card-actions justify-end mt-8 space-x-4">
+            <button
+              on:click={() => {
+                window.scrollTo(0, 0);
+                lat = pin.location.split(",")[0];
+                lng = pin.location.split(",")[1];
+                router.goto("/explore");
+              }}
+              class="btn btn-primary">PinEarth</button
+            >
+            <a
+              class="btn"
+              target="_blank"
+              href="https://twitter.com/intent/tweet?via=onlyarweave&text={encodeURI(
+                'Check out my pin on the permaweb'
+              )}&url={window.location.href.replace('#', '%23')}"
+            >
+              Share</a
+            >
+          </div>
+        </div>
+      {/await}
+    </section>
+  </main>
+</Route>
+
+<!--connect with your wallet to login to Hubs--->
+
+<Route path="/connect">
+  <main class="hero relative bg-neutral-300 min-h-screen">
+    <section class="hero-content flex-col">
+      <h3 class="text-6xl font-medium mb-37">CONNECT YOUR WALLET!</h3>
+
+      <p class="mt-5 text-orange-400 link text-3xl font-medium">
+        Begin Your Jounery Into The Blockweave!
+      </p>
+
+      <div
+        class="flex space-x-8 mb-8 mt-6 shadow-black/40 shadow-2xl hover:bg-blue-300"
+      >
+        <button
           class="btn btn-info"
           on:click={async () => {
             const addr = await connect();
@@ -427,91 +420,92 @@
             router.goto("/explore");
           }}>Arweave.app</button
         >
+      </div>
+
+      <div
+        class="block shadow-black/60 shadow-2xl rounded-lg bg-white p-6 dark:bg-neutral-700"
+      >
+        <h5
+          class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50"
+        >
+          About Arweave.app
+        </h5>
+        <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+          Arweave.app is a community developed, open source, project that gets
+          you started on Arweave with a minimum of effort.<br /> Upon arrival
+          you'll be presented with the welcome screen.<br />
+          Setting up your wallet is super easy, simply open up arweave.app in your
+          browser. Click on the button below to get started
+        </p>
+        <a
+          href="https://arweave.app"
+          data-te-ripple-init
+          data-te-ripple-color="primary"
+          class="inline-block rounded-full bg-orange-200 hover:bg-gray-400 btn btn-gray-700 px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
+        >
+          Learn More...
+        </a>
+      </div>
+    </section>
+  </main>
+</Route>
+
+<Route path="/publishing">
+  <main class="hero bg-neutral-300 min-h-screen min-w-screen">
+    <section class="hero-content flex-col">
+      {#if error}
+        <h1 class="text-6xl">Error Publishing Pin</h1>
+        <div class="alert alert-error">
+          {error}
         </div>
+        <div class="flex space-x-4">
+          <a
+            on:click={() => (error = null)}
+            class="btn btn-primary"
+            href="/pins/new">Try Again</a
+          >
+          <a on:click={() => (error = null)} class="btn" href="/explore"
+            >Explore</a
+          >
+        </div>
+      {:else}
+        <h1 class="text-6xl">Publishing Pin</h1>
 
-        <div
-              class="block shadow-black/60 shadow-2xl rounded-lg bg-white p-6  dark:bg-neutral-700">
-              <h5
-                class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                About Arweave.app
-              </h5>
-              <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                Arweave.app is a community developed, open source, project that gets you started on 
-                Arweave with a minimum of effort.<br> Upon arrival you'll be presented with the welcome screen.<br>
-                Setting up your wallet is super easy, simply open up arweave.app in your browser. Click on the button below to get started 
-              </p>
-               <a
-              href="https://arweave.app"
-              
-              data-te-ripple-init
-              data-te-ripple-color="primary"
-              class="inline-block rounded-full bg-orange-200 hover:bg-gray-400 btn btn-gray-700 px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-              Learn More...
-            </a>
-         </div>
-      
-      </section>
-    </main>    
-  </Route>
-
-  <Route path="/publishing">
-    <main class="hero bg-neutral-300 min-h-screen min-w-screen">
-      <section class="hero-content flex-col">
-        {#if error}
-          <h1 class="text-6xl">Error Publishing Pin</h1>
-          <div class="alert alert-error">
-            {error}
+        <div class="bg-neutral-300 h-16 w-full md:w-full">
+          <progress class="w-full block h-16" value={$progress} />
+        </div>
+        {#if upload}
+          <div>
+            <h3>Verifying Your Transaction with arweave...</h3>
           </div>
-          <div class="flex space-x-4">
-            <a
-              on:click={() => (error = null)}
-              class="btn btn-primary"
-              href="/pins/new">Try Again</a
-            >
-            <a on:click={() => (error = null)} class="btn" href="/explore"
-              >Explore</a
-            >
-          </div>
-        {:else}
-          <h1 class="text-6xl">Publishing Pin</h1>
-  
-          <div class="bg-neutral-300 h-16 w-full md:w-full">
-            <progress class="w-full block h-16" value={$progress} />
-          </div>
-          {#if upload}
-            <div>
-              <h3>Verifying Your Transaction with arweave...</h3>
-            </div>
-          {/if}
         {/if}
-      </section>
-    </main>
-  </Route>
+      {/if}
+    </section>
+  </main>
+</Route>
 
-  <!--About Page-->
-  <Route path="/about">
-    <About />
-  </Route>
+<!--About Page-->
+<Route path="/about">
+  <About />
+</Route>
 
-  <!--Blog Page-->
+<!--Blog Page-->
 
-  <Route path="/blog">
-    <Blog />
-  </Route>
+<Route path="/blog">
+  <Blog />
+</Route>
 
-  <!--404 Page -->
-  <Route path="/404">
-    <Navbar />
-    <main class="hero bg-neutral-300 min-h-screen">
-      <section class="hero-content flex-col">
-        <div class="alert alert-warning">
-          <h1 class="text-6xl">Pin Location Not Found!</h1>
-        </div>
-        <div class="mt-8">
-          <a class="btn btn-primary" href="/explore">Explore</a>
-        </div>
-      </section>
-    </main>
-  </Route>
-
-
+<!--404 Page -->
+<Route path="/404">
+  <Navbar />
+  <main class="hero bg-neutral-300 min-h-screen">
+    <section class="hero-content flex-col">
+      <div class="alert alert-warning">
+        <h1 class="text-6xl">Pin Location Not Found!</h1>
+      </div>
+      <div class="mt-8">
+        <a class="btn btn-primary" href="/explore">Explore</a>
+      </div>
+    </section>
+  </main>
+</Route>

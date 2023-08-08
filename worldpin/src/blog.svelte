@@ -38,9 +38,11 @@
 </script>
 
 <Navbar />
-<main class="h-screen bg-neutral-300">
+<main class="h-screen">
   <section class="hero-content items-center text-center">
-    <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 lg:col-span-1 2xl:col-span-1 pt-7 ">
+    <div
+      class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 lg:col-span-1 2xl:col-span-1 pt-7"
+    >
       <!-- <img alt="Hubs" src="codehubs-removebg-preview.png" style="height: 120px" /> -->
       <h1 class="text-3xl font-extrabold">PinPoint-Blog</h1>
 
@@ -67,16 +69,21 @@
             >
               <!-- {#if blog_active_states[post.id]} Hide {:else} Show {/if} -->
               <h2 class="text-3xl pb-4 font-normal link">{post.title}</h2>
-              <div class="block shadow-black/60 shadow-2xl rounded-lg bg-white px-6 ml-10 dark:bg-neutral-700" id="{post.id}_container" />
+              <div
+                class="block shadow-black/60 shadow-2xl rounded-lg bg-white px-6 ml-10 dark:bg-neutral-700"
+                id="{post.id}_container"
+              />
             </a>
           </div>
         {/each}
       {:else}
-        <p class="mt-5 text-orange-400 link text-3xl font-medium">No posts yet.</p>
+        <p class="mt-5 text-orange-400 link text-3xl font-medium">
+          No posts yet.
+        </p>
       {/if}
       <div>
         <button
-          class="btn mt-8 shadow-black/50 shadow-2xl"
+          class="btn mt-8 mb-5 bg-slate-500 hover:bg-red-200 shadow-black/70 shadow-2xl"
           on:click={async () => {
             window.scrollTo(0, 0);
             router.goto("/explore");

@@ -471,47 +471,12 @@
       {:else}
         <h1 class="text-6xl">Publishing Pin</h1>
 
-<<<<<<< HEAD
-        <div
-              class="block grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 lg:col-span-1 2xl:col-span-1 shadow-black/60 shadow-2xl rounded-lg bg-white p-6  dark:bg-neutral-700">
-              <h5
-                class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                About Arweave.app
-              </h5>
-              <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                Arweave.app is a community developed, open source, project that gets you started on 
-                Arweave with a minimum of effort.<br> Upon arrival you'll be presented with the welcome screen.<br>
-                Setting up your wallet is super easy, simply open up arweave.app in your browser. Click on the button below to get started 
-              </p>
-               <a
-              href="https://arweave.app"
-              
-              data-te-ripple-init
-              data-te-ripple-color="primary"
-              class="inline-block rounded-full bg-orange-200 hover:bg-gray-400 btn btn-gray-700 px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-              Learn More...
-            </a>
-         </div>
-      
-      </section>
-    </main>    
-  </Route>
-
-  <Route path="/publishing">
-    <main class="hero bg-neutral-300 min-h-screen min-w-screen">
-      <section class="hero-content flex-col">
-        {#if error}
-          <h1 class="text-6xl">Error Publishing Pin</h1>
-          <div class="alert alert-error">
-            {error}
-=======
         <div class="bg-neutral-300 h-16 w-full md:w-full">
           <progress class="w-full block h-16" value={$progress} />
         </div>
         {#if upload}
           <div>
             <h3>Verifying Your Transaction with arweave...</h3>
->>>>>>> 836ebe525a9e4611be6e5b9537eab6369f68bd20
           </div>
         {/if}
       {/if}

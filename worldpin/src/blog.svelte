@@ -38,11 +38,11 @@
 </script>
 
 <Navbar />
-<main class="container">
+<main class="h-screen bg-neutral-400">
   <section class="hero-content items-center text-center">
-    <div class=" pt-7 grid grid-cols-1">
+    <div class=" pt-7 ">
       <!-- <img alt="Hubs" src="codehubs-removebg-preview.png" style="height: 120px" /> -->
-      <h1 class="text-4xl font-extrabold">Hubs Blog</h1>
+      <h1 class="text-4xl font-extrabold">PinPoint-Blog</h1>
 
       <div
         class="mt-9 shadow-black/40 shadow-2xl text-m text-gray-900 dark:text-white"
@@ -66,13 +66,13 @@
               }}
             >
               <!-- {#if blog_active_states[post.id]} Hide {:else} Show {/if} -->
-              <h3 class="text-4xl link">{post.title}</h3>
-              <div id="{post.id}_container" />
+              <h2 class="text-3xl pb-4 font-normal link">{post.title}</h2>
+              <div class="block shadow-black/60 shadow-2xl rounded-lg bg-white px-6 ml-10 dark:bg-neutral-700" id="{post.id}_container" />
             </a>
           </div>
         {/each}
       {:else}
-        <p>No posts yet.</p>
+        <p class="mt-5 text-orange-400 link text-3xl font-medium">No posts yet.</p>
       {/if}
       <div>
         <button

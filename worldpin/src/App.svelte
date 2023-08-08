@@ -35,8 +35,8 @@
   let progress = writable(0);
   let timestamp = new Date().toISOString();
   let upload = false;
-  let lat = 32.7876;
-  let lng = -79.9403;
+  let lat = 25.2744;
+  let lng = 133.7751;
   let once = false;
 
 
@@ -414,8 +414,8 @@
       <section class="hero-content flex-col">
         <h3 class="text-6xl font-medium mb-37">CONNECT YOUR WALLET!</h3>
 
-        <p class="mt-5 text-orange-400 font-bold">
-          Begin Your Search Jounery Into The Arweavely Chain Paradigm!
+        <p class="mt-5 text-orange-400 link text-3xl font-medium">
+          Begin Your Jounery Into The Blockweave!
         </p>
         
         <div class="flex space-x-8 mb-8 mt-6 shadow-black/40 shadow-2xl hover:bg-blue-300 ">

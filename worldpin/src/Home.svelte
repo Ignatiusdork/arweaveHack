@@ -101,14 +101,15 @@
         <!--Wrapper for flex box-->
         <div class="flex justify-center items-center h-full">
           <div class="text-white text-center">
-            <h1 class="mb-19 text-5xl font-semibold">HUBS!</h1>
+            <h1 class="mb-19 text-5xl font-semibold">PinPoint-Earth</h1>
             <p class="font-medium text-center mb-5 mt-7 text-cyan-500">
               Protocol
             </p>
             <h2 class="mb-14 mt-9 text-3xl font-medium">
-              Find Your Best Hubs Around The World.
+              Introducing PinPoint-Earth - Your Gateway to Global Exploration!
             </h2>
-            <p class="pb-9 text-cyan-500">And Pin on Arweave Forever!</p>
+            <p class="pb-9 text-cyan-500">With PinPoint Earth, you can seamlessly explore breathtaking landscapes, stunning landmarks, and 
+              hidden gems, all from the comfort of your screen.</p>
 
             <a class="btn  mt-4  text-cyan-500 h-12 px-6 bg-black" href="#connect"> LET's GO! </a>
           </div>

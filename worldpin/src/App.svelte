@@ -430,7 +430,7 @@
         </div>
 
         <div
-              class="block grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 shadow-black/60 shadow-2xl rounded-lg bg-white p-6  dark:bg-neutral-700">
+              class="block grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 lg:col-span-1 2xl:col-span-1 shadow-black/60 shadow-2xl rounded-lg bg-white p-6  dark:bg-neutral-700">
               <h5
                 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
                 About Arweave.app

@@ -8,9 +8,7 @@
   "scripts": {
     "load-data": "node load-dev-data.js",
     "load-text": "node text.js"
-    
   },
-
   "dependencies": {
     "arweave": "^1.14.4"
   }
